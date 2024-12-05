@@ -82,15 +82,33 @@ if(resultF == "index.html"){
             }
 
             let butAñadirFavs = document.querySelector(".modal-footer button:nth-child(1)");
-            butAñadirFavs.addEventListener("click", () =>{
-                let recetaFav = {
-                    id: receta.meals[0].idMeal,
-                    nombreReceta: receta.meals[0].strMeal,
-                    img: receta.meals[0].strMealThumb,
-                    instrucciones: receta.meals[0].strInstructions
+            let clase = butAñadirFavs.getAttribute("class").split(" ");
+            
+            if(clase[clase.length -1] == "añadir"){
+                butAñadirFavs.onclick = () =>{
+                    let recetaFav = {
+                        id: receta.meals[0].idMeal,
+                        nombreReceta: receta.meals[0].strMeal,
+                        img: receta.meals[0].strMealThumb,
+                        instrucciones: receta.meals[0].strInstructions
+                    }
+                    butAñadirFavs.textContent = "Eliminar de Favoritos";
+                    subirLocalStorage(recetaFav);
                 }
-                subirLocalStorage(recetaFav);
-            })
+                butAñadirFavs.classList.toggle("añadir");
+            }else{
+                butAñadirFavs.onclick = () =>{
+                    let recetaFav = {
+                        id: receta.meals[0].idMeal,
+                        nombreReceta: receta.meals[0].strMeal,
+                        img: receta.meals[0].strMealThumb,
+                        instrucciones: receta.meals[0].strInstructions
+                    }
+                    butAñadirFavs.textContent = "Añadir a Favoritos";
+                    eliminarLocalStorage(recetaFav);
+                }
+                butAñadirFavs.classList.toggle("añadir");
+            }
         })
     }
 
@@ -106,6 +124,15 @@ if(resultF == "index.html"){
             recetasTotales.push(recetasFav);
             localStorage.setItem("recetaFav", JSON.stringify(recetasTotales));
         }
+    }
+
+    function eliminarLocalStorage(recetasFav){
+        recetasTotales.forEach((receta, index) => {
+            if(receta.id == recetasFav.id){
+                recetasTotales.splice(index, 1);
+                localStorage.setItem("recetaFav", JSON.stringify(recetasTotales));
+            }
+        });
     }
 
     cargarCategorias();
