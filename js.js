@@ -9,11 +9,40 @@ if(resultF == "index.html"){
     let selectCategorias = document.querySelector("#categorias select");
     let divComidas = document.querySelector("#recetas .row");
     let divs = null;
+    const toastTrigger = document.getElementById('liveToastBtn')
+    const toastTrigger2 = document.getElementById('liveToastBtn2')
+    
+    const toastLiveExample = document.getElementById('liveToast')
 
-
+    
+    
     // FUNCIONALIDADES
-
+    
     // Funcion para el fetching de datos de la API con la URL
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastTrigger.addEventListener('click', () => {
+            toastLiveExample.innerHTML = `
+                <div class="toast-header">
+                    <strong class="me-auto">R<span>A</span>PPI</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">Añadido a Favoritos con éxito</div>
+                </div>
+            `;
+            toastBootstrap.show()
+            })
+        // const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastTrigger2.addEventListener('click', () => {
+            toastLiveExample.innerHTML = `
+                <div class="toast-header">
+                    <strong class="me-auto">R<span>A</span>PPI</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">Eliminado de Favoritos con éxito</div>
+                </div>
+            `;
+            toastBootstrap.show()
+        })
     function obtenerDatos(url){
         return fetch(url).then(respuesta => respuesta.json());
     }
@@ -155,9 +184,19 @@ if(resultF == "index.html"){
 
     cargarCategorias();
 }else{
-    document.addEventListener("DOMContentLoaded", () => {
-        console.log("hola");
-    });
+    // const recetasTotales = JSON.parse(localStorage.getItem("recetaFav"));
+    const contenedorRecetas = document.querySelector("#recetas .row");
+    if(JSON.parse(localStorage.getItem("recetaFav")) == [] || !JSON.parse(localStorage.getItem("recetaFav"))){
+        let mensaje = document.createElement("h2");
+        mensaje.classList.add("text-center");
+        mensaje.textContent = "Aun no tienes ninguna receta en Favoritos";
+        document.querySelector(".row > h1").append(mensaje);
+    }else{
+        const recetasTotales = JSON.parse(localStorage.getItem("recetaFav"));
+        recetasTotales.forEach(receta => {
+
+        });
+    }
 }
 
 

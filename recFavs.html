@@ -3,10 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Api Eecetas Favs</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        nav a{
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-left: 40px;
+        }
+        header h1{
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+
+            span{
+                color: orange;
+            }
+        }
+    </style>
 </head>
+<header id="header" class="container bg-danger text-light py-4">
+    <div class="row">
+        <div class="col">
+            <h1 class="my-auto">R<span>A</span>PPI</h1>
+        </div>
+        <nav class="col-auto ms-auto my-auto">
+            <a href="index.html">Inicio</a>
+            <a href="recFavs.html">Mis Favoritos</a>
+        </nav>
+    </div>
+</header>
 <body>
-    <h1>hola</h1>
+    <div class="container my-5">
+        <div class="row">
+            <h1 class="text-center my-5">Mis Recetas Favoritas</h1>
+        </div>
+    </div>
     <script src="./js.js"></script>
 </body>
 </html>
