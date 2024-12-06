@@ -28,6 +28,9 @@
                 color: orange;
             }
         }
+        .modal-footer button:nth-child(2){
+            display: none;
+        }
         .list-group-item {
     border: solid 1px rgba(255,255,255,0.3);
 }
@@ -85,7 +88,8 @@
             <ul class="list-group border-danger"></ul>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary añadir">Añadir a Favoritos</button>
+          <button type="button" class="btn btn-secondary">Añadir a Favoritos</button>
+          <button type="button" class="btn btn-secondary">Eliminar de Favoritos</button>
           <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
         </div>
       </div>
