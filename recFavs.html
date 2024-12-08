@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Api Eecetas Favs</title>
-    <link rel="stylesheet" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/5/slate/bootstrap.min.css">
     <style>
         *{
             margin: 0%;
@@ -28,40 +28,47 @@
                 color: orange;
             }
         }
+        .modal-footer button:nth-child(2){
+            display: none;
+        }
+        .list-group-item {
+            border: solid 1px rgba(255,255,255,0.3);
+        }
     </style>
 </head>
-<header id="header" class="container bg-danger text-light py-4">
-    <div class="row">
-        <div class="col">
-            <h1 class="my-auto">R<span>A</span>PPI</h1>
-        </div>
-        <nav class="col-auto ms-auto my-auto">
-            <a href="index.html">Inicio</a>
-            <a href="recFavs.html">Mis Favoritos</a>
-        </nav>
-    </div>
-</header>
 <body>
+    <!-- Header -->
+    <header id="header" class="container bg-danger text-light py-4">
+        <div class="row">
+            <div class="col">
+                <h1 class="my-auto">R<span>A</span>PPI</h1>
+            </div>
+            <nav class="col-auto ms-auto my-auto">
+                <a href="index.html">Inicio</a>
+                <a href="recFavs.html">Mis Favoritos</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Título sobre nuestras recetas -->
     <div class="container my-5">
         <div class="row">
             <h1 class="text-center my-5">Mis Recetas Favoritas</h1>
         </div>
     </div>
 
+    <!-- Contenedor de las recetas -->
     <div class="container my-5" id="recetas">
-        <div class="row">
-            <!-- <div class="col-md-4"> -->
-                <!-- <div class="card text-white bg-primary mb-3">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                      <h4 class="card-title">Primary card title</h4>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div> -->
-            <!-- </div> -->
+        <div class="row"></div>
+    </div>
+
+    <!-- EL TOAST PARA EL AVISO DE LOS FAVORITOS -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
         </div>
     </div>
 
+    <!-- Modal -->
     <div class="modal fade" id="emergente" tabindex="-1" aria-labelledby="emergenteLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
